@@ -42,11 +42,13 @@ contract SSayePresale is Pausable {
     uint discountTokens = 0;
     uint multiples = numTokens.div(1000);
 
+    /*
     if(numTokens >= 1000) {
       discountTokens = numTokens.mul(15);
       discountTokens = discountTokens.div(100);
     }
-
+    */
+    
     if(multiples > 1 && numTokens < 10000) {
       temp = numTokens.sub(1000);
       temp = temp.div(1000);
