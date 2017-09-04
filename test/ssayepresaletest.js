@@ -15,12 +15,12 @@ contract('SSayePresale', function(accounts) {
   });
 
   it("test for fallback function", async function() {
-    var expected = 1150;
+    var expected = 1000;
     try {
       const promise1 = await web3.eth.sendTransaction({from: accounts[8],to: SSaye.address, value: web3.toWei(4,'ether'), gas: 2000000});
       const balance = await SSaye.balanceOf.call(accounts[8]);
       expect(parseInt(balance.valueOf())).to.equal(expected);
-      expected = 2320;
+      expected = 2020;
       const promise2 = await web3.eth.sendTransaction({from: accounts[7],to: SSaye.address, value: web3.toWei(8,'ether'), gas: 2000000});
       const balance2 = await SSaye.balanceOf.call(accounts[7]);
       expect(parseInt(balance2.valueOf())).to.equal(expected);
@@ -32,7 +32,7 @@ contract('SSayePresale', function(accounts) {
 
 
   it("test for numberOfTokensLeft", async function() {
-    var expected = 4996530;
+    var expected = 4996980;
     const tokens = await SSaye.numberOfTokensLeft.call();
     expect(parseInt(tokens.valueOf())).to.equal(expected)
   });
